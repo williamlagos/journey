@@ -54,6 +54,18 @@ class AdventureGame:
         Initializes the AdventureGame with a new GameState and decision tree.
     start():
         Starts the adventure game by presenting the player with a choice of paths.
+    build_decision_tree():
+        Builds the decision tree for the game.
+    execute_action(action):
+        Executes the action based on the player's choice.
+    left_path():
+        Handles the scenario when the player chooses the left path.
+    right_path():
+        Handles the scenario when the player chooses the right path.
+    straight_path():
+        Handles the scenario when the player chooses to go straight ahead.
+    rest():
+        Handles the scenario when the player chooses to sit and rest.
     """
 
     def __init__(self):
@@ -62,6 +74,9 @@ class AdventureGame:
         self.build_decision_tree()
 
     def build_decision_tree(self):
+        """
+        Builds the decision tree for the game.
+        """
         left = Node("left_path")
         right = Node("right_path")
         straight = Node("straight_path")
@@ -75,6 +90,9 @@ class AdventureGame:
         right.right = straight
 
     def start(self):
+        """
+        Starts the adventure game by presenting the player with a choice of paths.
+        """
         print("""
             Welcome to the Adventure Game!
             You find yourself in a dark forest with paths leading in different directions.
@@ -110,6 +128,12 @@ class AdventureGame:
                 print("Please enter a valid number.")
 
     def execute_action(self, action):
+        """
+        Executes the action based on the player's choice.
+
+        Args:
+            action (str): The action to execute.
+        """
         if action == "left_path":
             self.left_path()
         elif action == "right_path":
@@ -120,6 +144,9 @@ class AdventureGame:
             self.rest()
 
     def left_path(self):
+        """
+        Handles the scenario when the player chooses the left path.
+        """
         print(f"""
             You take the left path and encounter a wild animal! 
             Your health is {self.state.health} and your inventory contains: {self.state.inventory}
@@ -127,6 +154,9 @@ class AdventureGame:
         # ...additional code for left path...
 
     def right_path(self):
+        """
+        Handles the scenario when the player chooses the right path.
+        """
         print(f"""
             You take the right path and find a hidden treasure! 
             Your health is {self.state.health} and your inventory contains: {self.state.inventory}
@@ -134,6 +164,9 @@ class AdventureGame:
         # ...additional code for right path...
 
     def straight_path(self):
+        """
+        Handles the scenario when the player chooses to go straight ahead.
+        """
         print(f"""
             You go straight ahead and fall into a trap! 
             Your health is {self.state.health} and your inventory contains: {self.state.inventory}
@@ -141,6 +174,9 @@ class AdventureGame:
         # ...additional code for straight path...
 
     def rest(self):
+        """
+        Handles the scenario when the player chooses to sit and rest.
+        """
         print(f"""
             You sit and rest for a while, regaining your strength. 
             Your health is {self.state.health} and your inventory contains: {self.state.inventory}
